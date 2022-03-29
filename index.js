@@ -1,7 +1,8 @@
 const inquirer = require('inquirer')
-const manager = []
-const engineers = []
-const interns = []
+const Employee = require('./lib/Employee')
+const managerData = []
+const engineerData = []
+const internData = []
 
 const promptManager = ()=> {
 
@@ -23,7 +24,7 @@ const promptManager = ()=> {
             message: 'What is the managers email address?'
         },
         {
-            name: 'office-number',
+            name: 'officeNumber',
             type: 'input',
             message: 'What is the managers office number?'
         },
@@ -42,14 +43,18 @@ const promptManager = ()=> {
         }
     ])
     .then(employeeData => {
-        manager.push(employeeData)
+        const title = "Manager"
+        managerData.push(title)
+        managerData.push(employeeData)
         if(employeeData.confirmEmp === true){
             if(employeeData.newEmp === 'Engineer'){
                 promptEngineer()
             }
             else(promptIntern())
         }
-        else(console.log(manager,engineers,interns))
+        else{
+        const manager = new Employee(managerData.title, managerData.name, managerData.id, managerData.email, managerData.officeNumber)
+        console.log(manager)}
         
 })}
     
@@ -72,7 +77,7 @@ const promptEngineer = () => {
             message: 'What is the engineers email address?'
         },
         {
-            name: 'office-number',
+            name: 'officeNumber',
             type: 'input',
             message: 'What is the engineers office number?'
         },
@@ -96,7 +101,7 @@ const promptEngineer = () => {
         },
     ])
     .then(employeeData => {
-        engineers.push(employeeData)
+        engineerData.push(employeeData)
         if(employeeData.confirmEmp === true){
             if(employeeData.newEmp === 'Engineer'){
                 promptEngineer()
@@ -147,7 +152,7 @@ const promptIntern = () => {
         }
     ])
     .then(employeeData => {
-        interns.push(employeeData)
+        internData.push(employeeData)
         if(employeeData.confirmEmp === true){
             if(employeeData.newEmp === 'Engineer'){
                 promptEngineer()
