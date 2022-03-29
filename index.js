@@ -4,6 +4,7 @@ const Intern = require('./lib/Intern')
 const Engineer = require('./lib/Engineer')
 const engineerArr = []
 const internArr = []
+const engcards = require('./src/template')
 let manager = ''
 
 const promptManager = ()=> {
@@ -161,8 +162,11 @@ const promptIntern = () => {
         
 })
 }
-
+const buildSite = () =>{
+    const site = engcards.generateEngineerCard(engineerArr)
+    console.log(site)
+}
 promptManager()
-
+.then(buildSite)
 
 
