@@ -1,8 +1,10 @@
 const inquirer = require('inquirer')
-const Employee = require('./lib/Employee')
-const managerData = []
-const engineerData = []
-const internData = []
+const Manager = require('./lib/Manager')
+const Intern = require('./lib/Intern')
+const Engineer = require('./lib/Engineer')
+const engineerArr = []
+const internArr = []
+let manager = ''
 
 const promptManager = ()=> {
 
@@ -43,9 +45,7 @@ const promptManager = ()=> {
         }
     ])
     .then(employeeData => {
-        const title = "Manager"
-        managerData.push(title)
-        managerData.push(employeeData)
+        manager = new Manager(employeeData.name, employeeData.id, employeeData.email, employeeData.officeNumber)
         if(employeeData.confirmEmp === true){
             if(employeeData.newEmp === 'Engineer'){
                 promptEngineer()
@@ -53,8 +53,7 @@ const promptManager = ()=> {
             else(promptIntern())
         }
         else{
-        const manager = new Employee(managerData.title, managerData.name, managerData.id, managerData.email, managerData.officeNumber)
-        console.log(manager)}
+        console.log('build page now')}
         
 })}
     
@@ -77,11 +76,6 @@ const promptEngineer = () => {
             message: 'What is the engineers email address?'
         },
         {
-            name: 'officeNumber',
-            type: 'input',
-            message: 'What is the engineers office number?'
-        },
-        {
             name: 'github',
             type: 'input',
             message: 'What is the engineers github profile name?'
@@ -101,14 +95,16 @@ const promptEngineer = () => {
         },
     ])
     .then(employeeData => {
-        engineerData.push(employeeData)
+        const engineer = new Engineer(employeeData.name, employeeData.id, employeeData.email, employeeData.github)
+        console.log(engineer)
+        engineerArr.push(engineer)
         if(employeeData.confirmEmp === true){
             if(employeeData.newEmp === 'Engineer'){
                 promptEngineer()
             }
             else(promptIntern())
         }
-        else(console.log(manager,engineers,interns))
+        else(console.log('build page now'))
         
 })
 }
@@ -152,14 +148,16 @@ const promptIntern = () => {
         }
     ])
     .then(employeeData => {
-        internData.push(employeeData)
+        const intern = new Intern(employeeData.name, employeeData.id, employeeData.email, employeeData.school)
+        console.log(intern)
+        internArr.push(intern)
         if(employeeData.confirmEmp === true){
             if(employeeData.newEmp === 'Engineer'){
                 promptEngineer()
             }
             else(promptIntern())
         }
-        else(console.log(manager,engineers,interns))
+        else(console.log('build page now', engineerArr, manager, internArr))
         
 })
 }
