@@ -157,11 +157,12 @@ const promptIntern = () => {
             }
             else(promptIntern())
         }
-        else(console.log('build page now', engineerArr, manager, internArr))
+        else(console.log('build page now', manager.getRole()))
         
 })
 }
 
 promptManager()
+
 
 
