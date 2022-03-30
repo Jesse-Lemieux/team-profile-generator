@@ -1,12 +1,22 @@
-const Engineer = require('../lib/Engineer')
 
-test('get engineer github name', () => {
-    const richard = new Engineer ('Richard', '2', 'richard@gmail.com', 'richard-web-development')
-    const engineerGit = richard.getGithub()
-    expect(engineerGit).toBe('richard-web-development')
-})
-test('get engineer role', () => {
-    const richard = new Engineer ('Richard', '2', 'richard@gmail.com', 'richard-web-development')
-    const engineerRole = richard.getRole()
-    expect(engineerRole).toBe('Engineer')
+const Engineer = require('../lib/engineer');
+
+describe("Engineer Test Sequence", () => {
+    it('Can set Github account via constructor', () => {
+        let github = 'Punkinut';
+
+        let engineer = new Engineer(' ', ' ', ' ', github);
+        expect(engineer.github).toEqual('Punkinut');
+    })
+    it('getRole() should return "Engineer"', () => {
+
+        let engineer = new Engineer();
+        expect(engineer.getRole()).toEqual('Engineer');
+    })
+    it('Can get GitHub username via getGithub()', () => {
+        let github = 'Punkinut';
+
+        let engineer = new Engineer(' ', ' ', ' ', github);
+        expect(engineer.getGithub()).toEqual('Punkinut');
+    })
 })
