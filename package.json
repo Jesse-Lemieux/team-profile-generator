@@ -1,5 +1,5 @@
 {
-  "name": "Team-Profile-Generator",
+  "name": "a",
   "version": "1.0.0",
   "description": "A node based application that generates an html page of users.",
   "main": "index.js",
@@ -18,13 +18,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Punkinut/Team-Profile-Generator.git"
+    "url": "https://github.com/Jesse-Lemieux/team-profile-generator"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Punkinut/Team-Profile-Generator/issues"
+    "url": "https://github.com/Jesse-Lemieux/team-profile-generator/issues"
   },
-  "homepage": "https://github.com/Punkinut/Team-Profile-Generator#readme"
+  "homepage": "https://github.com/Jesse-Lemieux/team-profile-generator/blob/main/README.md"
 }
