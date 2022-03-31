@@ -32,6 +32,8 @@ packages. You will need npm installed, you can read more about that [here](https
 which you can find [here](https://www.npmjs.com/package/inquirer). Once those dependencies are fitted, you're ready to begin usage.
 
 ## Usage
+    
+    NOTE: There is a full walkthrough video of usage in the "img" folder!
 
     To begin, open your terminal within the root directory, or if you're using VS code, open an integrated terminal like shown here:
 
